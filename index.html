@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sims 4 Lots Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Sims 4 Lots</h1>
+        <p class="subtitle">Filter by lot type (and more) from <code>sims4_worlds_lots_full.csv</code>.</p>
+      </header>
+
+      <section class="controls" aria-label="Filters">
+        <div class="field">
+          <label for="lotType">Lot type</label>
+          <select id="lotType"></select>
+        </div>
+
+        <div class="field">
+          <label for="world">World</label>
+          <select id="world"></select>
+        </div>
+
+        <div class="field">
+          <label for="bucket">Bucket/section</label>
+          <select id="bucket"></select>
+        </div>
+
+        <div class="field field-wide">
+          <label for="query">Search lot name</label>
+          <input id="query" type="search" placeholder="e.g. Park, Library, Cottage…" autocomplete="off" />
+        </div>
+
+        <div class="actions">
+          <button id="reset" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="status" aria-live="polite">
+        <div id="statusText">Loading…</div>
+      </section>
+
+      <section class="tableWrap" aria-label="Results">
+        <table class="table" id="results">
+          <thead>
+            <tr>
+              <th>World</th>
+              <th>Lot name</th>
+              <th>Lot type</th>
+              <th>Bucket/section</th>
+              <th id="packHeader" class="hidden">Pack/DLC</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
