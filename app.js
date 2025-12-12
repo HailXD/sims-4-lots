@@ -188,9 +188,12 @@ function main() {
   async function load() {
     wireControls();
     try {
-      const res = await fetch(CSV_PATH, { cache: "no-store" });
-      if (!res.ok) throw new Error(`Failed to load CSV: ${res.status} ${res.statusText}`);
-      const text = await res.text();
+      let text = typeof window.SIMS4_LOTS_CSV === "string" ? window.SIMS4_LOTS_CSV : "";
+      if (!text) {
+        const res = await fetch(CSV_PATH, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Failed to load CSV: ${res.status} ${res.statusText}`);
+        text = await res.text();
+      }
 
       const rows = parseCSV(text);
       if (rows.length < 2) throw new Error("CSV has no data rows");
