@@ -70,10 +70,15 @@ select, input[type="search"] {
   appearance: none;
   border-radius: 10px;
   border: 1px solid var(--border);
-  background: transparent;
+  background-color: var(--panel);
   color: var(--text);
   padding: 10px 10px;
   outline: none;
+}
+
+select option {
+  background-color: var(--panel);
+  color: var(--text);
 }
 
 select:focus, input[type="search"]:focus {
